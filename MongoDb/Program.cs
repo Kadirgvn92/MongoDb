@@ -1,6 +1,27 @@
+using Microsoft.Extensions.Options;
+using MongoDb.Services.CategoryService;
+using MongoDb.Settings;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+//MongoDb veritabanýna baðlantý ayarý
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection(nameof(DatabaseSettings)));
+
+
+//MongoDb veritabanýndaki tanýmlamalrý saðlar
+builder.Services.AddScoped<IDatabaseSettings>(sp =>
+{
+    return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
+});
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
