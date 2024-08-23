@@ -1,0 +1,31 @@
+﻿@using MongoDb.DTOs.ProductDTOs
+
+@model GetByIdProductDTO
+
+@{
+    ViewData["Title"] = "CreateProduct";
+}
+
+<h1>Update Product</h1>
+
+<div class="container">
+    <form method="post">
+        <input type="hidden" asp-for="ProductId" />
+        <div class="alert alert-info">Ürün Güncelle</div>
+        <label>Ürün Adı</label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <br />
+        <label>Ürün Stoğu</label>
+        <input type="text" asp-for="Stock" class="form-control" />
+        <br />
+        <label>Ürün Fiyatı</label>
+        <input type="text" asp-for="Price" class="form-control" />
+        <br />
+        <label>Ürün Resmi</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Ürün Güncelle</button>
+    </form>
+
+</div>
+

@@ -1,0 +1,23 @@
+﻿@using MongoDb.DTOs.CategoryDTOs
+
+@model GetByIdCategoryDTO
+
+@{
+    ViewData["Title"] = "UpdateCategory";
+}
+
+<h1>Update Category</h1>
+
+<div class="container">
+    <form method="post">
+        <input type="hidden" asp-for="CategoryId"/>
+        <div class="alert alert-info">Kategori Güncelle</div>
+        <br />
+        <label>Kategori Adı</label>
+        <input type="text" asp-for="CategoryName" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Kategori Güncelle</button>
+    </form>
+
+</div>
+

@@ -6,9 +6,8 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="container">
-    <br />
-    <table>
+
+    <table class="w-100">
         <tr>
             <th>Kategori Id</th>
             <th>Kategori Adı</th>
@@ -19,6 +18,7 @@
         {
             <tr>
                 <td>@item.CategoryId</td>
+
                 <td>@item.CategoryName</td>
                 <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
                 <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-info">Güncelle</a></td>
@@ -26,4 +26,3 @@
         }
     </table>
     <a href="/Category/CreateCategory">Kategori Oluştur</a>
-</div>

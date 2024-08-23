@@ -29,9 +29,21 @@ public class CategoryController : Controller
         await _categoryService.CreateCategoryAsync(DTO);
         return RedirectToAction("Index");
     }
-    public async Task DeleteCategory(string id)
+    public async Task<IActionResult> DeleteCategory(string id)
     {
         await _categoryService.DeleteCategoryAsync(id);
+        return RedirectToAction("Index");   
     }
-
+    [HttpGet]
+    public async Task<IActionResult> UpdateCategory(string id)
+    {
+        var values = await _categoryService.GetByIdCategoryAsync(id);
+        return View(values);
+    }
+    [HttpPost]
+    public async Task<IActionResult> UpdateCategory(UpdateCategoryDTO DTO)
+    {
+        await _categoryService.UpdateCategoryAsync(DTO);
+        return RedirectToAction("Index");   
+    }
 }
