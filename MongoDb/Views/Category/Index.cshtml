@@ -9,7 +9,6 @@
 
     <table class="w-100">
         <tr>
-            <th>Kategori Id</th>
             <th>Kategori Adı</th>
             <th>Sil</th>
             <th>Güncelle</th>
@@ -17,8 +16,6 @@
         @foreach(var item in Model)
         {
             <tr>
-                <td>@item.CategoryId</td>
-
                 <td>@item.CategoryName</td>
                 <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
                 <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-info">Güncelle</a></td>

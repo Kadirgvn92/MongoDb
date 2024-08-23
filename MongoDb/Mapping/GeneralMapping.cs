@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MongoDb.DTOs.CategoryDTOs;
+using MongoDb.DTOs.CustomerDTOs;
 using MongoDb.DTOs.ProductDTOs;
 using MongoDb.Entities;
 
@@ -18,5 +19,10 @@ public class GeneralMapping : Profile
         CreateMap<Product, CreateProductDTO>().ReverseMap();
         CreateMap<Product, UpdateProductDTO>().ReverseMap();
         CreateMap<Product, GetByIdProductDTO>().ReverseMap();
+
+        CreateMap<Customer, ResultCustomerDTO>().ReverseMap();
+        CreateMap<Customer, CreateCustomerDTO>().ReverseMap();
+        CreateMap<Customer, UpdateCustomerDTO>().ReverseMap();
+        CreateMap<Customer, GetByIdCustomerDTO>().ReverseMap();
     }
 }

@@ -1,0 +1,27 @@
+﻿@using MongoDb.DTOs.CustomerDTOs
+
+@model CreateCustomerDTO
+
+@{
+    ViewData["Title"] = "CreateCustomer";
+}
+
+<h1>CreateCustomer</h1>
+
+<div class="container">
+    <form method="post">
+        <div class="alert alert-info">Yeni Müşteri Oluştur</div>
+        <label>Müşteri Adı</label>
+        <input type="text" asp-for="FullName" class="form-control" />
+        <br />
+        <label>Müşteri Telefon</label>
+        <input type="text" asp-for="Phone" class="form-control" />
+        <br />
+        <label>Müşteri Mail</label>
+        <input type="email" asp-for="Email" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Müşteri Oluştur</button>
+    </form>
+
+</div>
+

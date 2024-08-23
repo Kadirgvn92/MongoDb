@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Options;
 using MongoDb.Services.CategoryService;
+using MongoDb.Services.CustomerService;
 using MongoDb.Services.ProductService;
 using MongoDb.Settings;
 using System.Reflection;
@@ -10,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());

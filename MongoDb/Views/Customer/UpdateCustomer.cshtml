@@ -1,0 +1,28 @@
+﻿@using MongoDb.DTOs.CustomerDTOs
+
+@model GetByIdCustomerDTO
+
+@{
+    ViewData["Title"] = "CreateCustomer";
+}
+
+<h1>Update Customer</h1>
+
+<div class="container">
+    <form method="post">
+        <input type="hidden" asp-for="CustomerId"/>
+        <div class="alert alert-info">Müşteri Güncelle</div>
+        <label>Müşteri Adı</label>
+        <input type="text" asp-for="FullName" class="form-control" />
+        <br />
+        <label>Müşteri Telefon</label>
+        <input type="text" asp-for="Phone" class="form-control" />
+        <br />
+        <label>Müşteri Mail</label>
+        <input type="email" asp-for="Email" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Müşteri Oluştur</button>
+    </form>
+
+</div>
+
