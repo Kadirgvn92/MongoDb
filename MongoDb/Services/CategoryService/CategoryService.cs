@@ -26,9 +26,9 @@ public class CategoryService : ICategoryService
         await _categoryCollection.InsertOneAsync(values);
     }
 
-    public Task DeleteCategoryAsync(string id)
+    public async Task DeleteCategoryAsync(string id)
     {
-        throw new NotImplementedException();
+        await _categoryCollection.DeleteOneAsync(id);
     }
 
     public async Task<List<ResultCategoryDTO>> GetAllCategoryAsync()
@@ -37,13 +37,15 @@ public class CategoryService : ICategoryService
         return _mapper.Map<List<ResultCategoryDTO>>(values);    
     }
 
-    public Task<GetByIdCategoryDTO> GetByIdCategoryAsync(string id)
+    public async Task<GetByIdCategoryDTO> GetByIdCategoryAsync(string id)
     {
-        throw new NotImplementedException();
+      var value = await _categoryCollection.Find<Category>(x => x.CategoryId == id).FirstOrDefaultAsync();
+        return _mapper.Map<GetByIdCategoryDTO>(value);
     }
 
-    public Task UpdateCategoryAsync(UpdateCategoryDTO DTO)
+    public async Task UpdateCategoryAsync(UpdateCategoryDTO DTO)
     {
-        throw new NotImplementedException();
+        var values = _mapper.Map<Category>(DTO);
+        await _categoryCollection.FindOneAndReplaceAsync(y => y.CategoryId == DTO.CategoryId, values);
     }
 }

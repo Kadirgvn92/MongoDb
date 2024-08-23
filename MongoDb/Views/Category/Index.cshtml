@@ -1,0 +1,29 @@
+﻿@using MongoDb.DTOs.CategoryDTOs
+
+@model List<ResultCategoryDTO>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <br />
+    <table>
+        <tr>
+            <th>Kategori Id</th>
+            <th>Kategori Adı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.CategoryName</td>
+                <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-info">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Category/CreateCategory">Kategori Oluştur</a>
+</div>

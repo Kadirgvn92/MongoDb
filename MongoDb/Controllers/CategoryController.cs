@@ -13,9 +13,10 @@ public class CategoryController : Controller
         _categoryService = categoryService;
     }
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var values = await _categoryService.GetAllCategoryAsync();
+        return View(values);
     }
     [HttpGet]
     public IActionResult CreateCategory()
@@ -28,4 +29,9 @@ public class CategoryController : Controller
         await _categoryService.CreateCategoryAsync(DTO);
         return RedirectToAction("Index");
     }
+    public async Task DeleteCategory(string id)
+    {
+        await _categoryService.DeleteCategoryAsync(id);
+    }
+
 }
